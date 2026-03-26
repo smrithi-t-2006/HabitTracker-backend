@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: habitiq
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/habitiq?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: Smrithi@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  task:
+    scheduling:
+      enabled: true
+
+server:
+  port: 8080
+
+# JWT Configuration
+jwt:
+  secret: HabitIQSecretKeyForJWTTokenGeneration2026MustBeLongEnoughForHS256Algorithm
+  expiration: 86400000  # 24 hours in milliseconds
+
+# Swagger / OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
